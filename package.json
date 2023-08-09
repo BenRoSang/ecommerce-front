@@ -9,10 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.2.0",
+    "@stripe/stripe-js": "^1.54.2",
+    "axios": "^1.4.0",
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.12",
-    "next": "13.4.12",
+    "micro": "^10.0.1",
+    "mongoose": "^7.4.1",
+    "next": "^13.4.12",
+    "nodemailer": "^6.9.4",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-hook-form": "^7.45.4",
+    "stripe": "^12.17.0",
+    "styled-components": "^6.0.6",
+    "yup": "^1.2.0"
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^2.1.4"
   }
 }
