@@ -46,7 +46,7 @@ function ProductBox({product}) {
         <ProductWrapper>
             <Box>
                 <div>
-                    <img src={product.images[0]} />
+                    <img src={typeof product.images[0] === 'string' ? product.images[0] : product.images[0].secure_url} />
                 </div>
             </Box>
             <ProductInfo>

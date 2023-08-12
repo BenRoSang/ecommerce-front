@@ -15,12 +15,12 @@ import {yupResolver} from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 
 const schema = yup.object({
-    name: yup.string().required(),
-    email: yup.string().email().required(),
-    city: yup.string().required(),
-    postal: yup.number().integer().required(),
-    address: yup.string().required(),
-    country: yup.string().required()
+    name: yup.string().required('Required field'),
+    email: yup.string().email('Invalid email format').required('Required field'),
+    city: yup.string().required('Required field'),
+    postal: yup.number().integer().required().typeError('Must be a number'),
+    address: yup.string().required('Required field'),
+    country: yup.string().required('Required field')
 }).required();
 
 const ColumnWrapper = styled.div`
@@ -87,19 +87,19 @@ const ErrorMessage = styled.div`
 `
 
 function CartComponent() {
-    const { register, handleSubmit, formState:{ errors } } = useForm({
+    const { register, handleSubmit, setError, formState:{ errors } } = useForm({
         resolver: yupResolver(schema)
     });
     const refs = useRef();
 
     const { cartProducts, clearCartProduct } = useContext(CartContext);
     const [products, setProducts] = useState([])
-    const [name, setName] = useState('')
-    const [email, setEmail] = useState('')
-    const [city, setCity] = useState('')
-    const [postal, setPostal] = useState('')
-    const [address, setAddress] = useState('')
-    const [country, setCountry] = useState('')
+    // const [name, setName] = useState('')
+    // const [email, setEmail] = useState('')
+    // const [city, setCity] = useState('')
+    // const [postal, setPostal] = useState('')
+    // const [address, setAddress] = useState('')
+    // const [country, setCountry] = useState('')
     const [isSuccess, setIsSuccess] = useState(false)
 
     useEffect(() => {
@@ -138,11 +138,10 @@ function CartComponent() {
     }
 
     const CartSubmitHandler = async(data) => {
-        console.log(data)
-        // const res = await axios.post('http://localhost:3001/api/cart',
-        //             JSON.stringify({name, email, city, postal, address, country, cartProducts})
-        //         )
-        // window.location = res.data.session.url
+        const res = await axios.post('http://localhost:3001/api/cart',
+                    JSON.stringify({name: data.name, email:data.email, city: data.city, postal: data.postal, address: data.address, country: data.country, cartProducts})
+                )
+        window.location = res.data.session.url
 
     }
 
