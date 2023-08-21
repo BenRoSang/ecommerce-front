@@ -7,7 +7,7 @@ import axios from "axios"
 
 const GetCategories = async() => {
     await mongooseConnect();
-    const data = await axios.get(`${process.env.DOMAIN}/api/categories`);
+    const data = await axios.get(`https://ecommerce-front-ho31dxg7p-benrosang.vercel.app/api/categories`);
     return data.data.categories
 }
 
