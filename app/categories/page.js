@@ -8,6 +8,7 @@ import axios from "axios"
 const GetCategories = async() => {
     await mongooseConnect();
     const data = await axios.get(`${process.env.DOMAIN}/api/categories`);
+
     return data.data.categories
 }
 

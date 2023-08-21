@@ -36,8 +36,8 @@ function Categories({categories}) {
 
     useEffect(() => {
         const GetProductByCategory = async() => {
-            
-            const data = await axios.get(`${process.env.DOMAIN}/api/categories/${activeCategoryId}`)
+            console.log(`${process.env.DOMAIN}/api/categories/${activeCategoryId}`)
+            const data = await axios.get(`${process.env.NEXT_PUBLIC_DOMAIN}/api/categories/${activeCategoryId}`)
 
             if(data.data.status !== 1) {
                 setIsData(false)

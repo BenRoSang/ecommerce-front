@@ -29,7 +29,7 @@ const GetProductListSort = async() => {
 export default async function Home() {
   const product = await JSON.parse(JSON.stringify(await GetProductById()));
   const products = await JSON.parse(JSON.stringify(await GetProductListSort()));
-  console.log(products)
+  console.log(process.env.DOMAIN);
   return (
     <>
       <Banner product={product} />
