@@ -10,9 +10,9 @@ function AllProducts({products}) {
   return (
         <Center>
             <ProductsGrid>
-                {products.length > 0 &&  products.map((product, i) => (
+                {/* {products.length > 0 &&  products.map((product, i) => (
                     <ProductBox key={i} product={product} />
-                ))}
+                ))} */}
             </ProductsGrid>
         </Center>
   )

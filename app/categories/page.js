@@ -16,7 +16,7 @@ async function page() {
   return (
     <>
         <SpaceForNav />
-        <Categories categories={categories} />
+        {/* <Categories categories={categories} /> */}
     </>
   )
 }
