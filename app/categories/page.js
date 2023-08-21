@@ -7,7 +7,7 @@ import axios from "axios"
 
 const GetCategories = async() => {
     await mongooseConnect();
-    const data = await axios.get(`https://ecommerce-front-ho31dxg7p-benrosang.vercel.app/api/categories`);
+    const data = await axios.get(`${process.env.DOMAIN}/api/categories`);
     return data.data.categories
 }
 
@@ -16,7 +16,7 @@ async function page() {
   return (
     <>
         <SpaceForNav />
-        {/* <Categories categories={categories} /> */}
+        <Categories categories={categories} />
     </>
   )
 }
