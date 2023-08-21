@@ -5,7 +5,7 @@ import SpaceForNav from "@/components/SpaceForNav"
 import axios from "axios"
 
 const GetProducts = async() => {
-    const products = await axios.get('http://localhost:3001/api/products')
+    const products = await axios.get(`${process.env.DOMAIN}/api/products`)
     return products.data.data
 }
 
