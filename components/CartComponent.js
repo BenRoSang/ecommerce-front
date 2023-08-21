@@ -105,7 +105,7 @@ function CartComponent() {
     useEffect(() => {
 
         const fetchProduct = async(ids) => {
-            const data = await fetch('http://localhost:3001/api/products', {
+            const data = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/products`, {
                 method: 'POST',
                 headers: {
                     'Content-type': 'application/json'
@@ -138,7 +138,7 @@ function CartComponent() {
     }
 
     const CartSubmitHandler = async(data) => {
-        const res = await axios.post('http://localhost:3001/api/cart',
+        const res = await axios.post(`${process.env.NEXT_PUBLIC_DOMAIN}/api/cart`,
                     JSON.stringify({name: data.name, email:data.email, city: data.city, postal: data.postal, address: data.address, country: data.country, cartProducts})
                 )
         window.location = res.data.session.url
