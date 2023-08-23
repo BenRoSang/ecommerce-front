@@ -60,8 +60,8 @@ export async function POST(request) {
             line_items,
             mode: 'payment',
             customer_email: email,
-            success_url: `${process.env.PUBLIC_URL}/cart?success=true`,
-            cancel_url: `${process.env.PUBLIC_URL}/cart?canceled=true`,
+            success_url: `${process.env.NEXT_PUBLIC_DOMAIN}/cart?success=true`,
+            cancel_url: `${process.env.NEXT_PUBLIC_DOMAIN}/cart?canceled=true`,
             metadata: {orderId: orderDoc._id.toString()}
         });
         return NextResponse.json({session})
